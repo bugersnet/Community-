@@ -1,0 +1,152 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Communication - BuggersNet</title>
+    <style>
+        /* General Hacking Theme Styling */
+        body {
+            background-color: #1a1a1a; /* Dark background */
+            color: #00ff41; /* Bright green "hacker" text color */
+            font-family: 'Consolas', 'Courier New', monospace; /* Monospace font for a terminal feel */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #00cc33;
+            text-shadow: 0 0 5px #00ff41; /* Neon glow effect */
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        /* Chat Window Styling */
+        .chat-container {
+            width: 100%;
+            max-width: 700px;
+            border: 1px solid #009920; /* Green border */
+            box-shadow: 0 0 10px #00ff4150; /* Subtle green glow */
+            background-color: #0d0d0d; /* Slightly darker chat area */
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        #messages {
+            height: 400px;
+            overflow-y: auto;
+            border-bottom: 1px dashed #009920;
+            margin-bottom: 15px;
+            padding-right: 10px;
+        }
+
+        /* Message Styling */
+        .message-item {
+            padding: 5px 0;
+            border-bottom: 1px dotted #333;
+        }
+
+        .message-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Input Area Styling */
+        .input-area {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-area input[type="text"],
+        .input-area input[type="file"] {
+            background-color: #2a2a2a;
+            color: #00ff41;
+            border: 1px solid #009920;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: inherit;
+        }
+
+        .input-area button {
+            background-color: #009920;
+            color: #1a1a1a;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-family: inherit;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .input-area button:hover {
+            background-color: #00cc33;
+        }
+
+        /* Placeholder for file input styling */
+        input[type="file"]::file-selector-button {
+            background-color: #333;
+            color: #00ff41;
+            border: 1px solid #00ff41;
+            padding: 5px;
+            border-radius: 3px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hacking Communication</h1>
+        <p>A community platform for **BuggersNet**</p>
+    </div>
+
+    <div class="chat-container">
+        <div id="messages">
+            <div class="message-item">[SYSTEM]: Welcome to BuggersNet Hacking Community!</div>
+            <div class="message-item">[User]: Testing link sharing: <a href="https://github.com" style="color: #00ff41;">GitHub Link</a></div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="text" placeholder="Type your message here...">
+            <button onclick="sendMessage()">Send Message</button>
+            
+            <input type="file" id="file">
+            <button onclick="sendFile()">Share File/Link</button>
+        </div>
+    </div>
+
+    <script>
+        // Placeholder JavaScript for the functions
+        // Actual chat logic will go here after setting up the backend/Socket.IO
+        function sendMessage() {
+            const message = document.getElementById('text').value;
+            if (message.trim() !== '') {
+                // Placeholder: Simulate receiving a message
+                const messagesDiv = document.getElementById('messages');
+                messagesDiv.innerHTML += `<div class="message-item">[You]: ${message}</div>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to bottom
+                document.getElementById('text').value = '';
+            }
+        }
+
+        function sendFile() {
+             alert("File sharing functionality requires a full backend setup!");
+             // Actual file sharing logic (using FileReader and socket.emit('file', ...)) would go here.
+        }
+    </script>
+</body>
+</html>
